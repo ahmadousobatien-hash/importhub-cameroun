@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formations - ImportHub Cameroun</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial; background: #0B1F3A; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; }
+        .header { background: #0B1F3A; color: white; padding: 20px; text-align: center; }
+        .header h1 { font-size: 1.5rem; }
+        .progress { background: #F4F6FA; padding: 16px; margin: 16px; border-radius: 12px; }
+        .progress-bar { background: #E5E7EB; height: 8px; border-radius: 10px; margin-top: 8px; }
+        .progress-fill { background: #F5640A; width: 45%; height: 8px; border-radius: 10px; }
+        .course { background: white; border: 1px solid #E5E7EB; border-radius: 12px; margin: 16px; padding: 16px; display: flex; gap: 12px; }
+        .course-icon { font-size: 2rem; }
+        .course-info { flex: 1; }
+        .course-title { font-weight: bold; font-size: 1rem; margin-bottom: 4px; }
+        .course-desc { font-size: 0.8rem; color: #6B7280; margin-bottom: 8px; }
+        .course-progress { font-size: 0.7rem; color: #F5640A; }
+        .btn { background: #F5640A; color: white; border: none; padding: 6px 16px; border-radius: 8px; cursor: pointer; }
+        .back { text-align: center; padding: 16px; border-top: 1px solid #E5E7EB; }
+        .back a { color: #F5640A; text-decoration: none; }
+        .stats { display: flex; justify-content: space-around; padding: 16px; background: #F4F6FA; margin: 16px; border-radius: 12px; }
+        .stat { text-align: center; }
+        .stat-value { font-size: 1.5rem; font-weight: bold; color: #F5640A; }
+        .stat-label { font-size: 0.7rem; color: #6B7280; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Mes Formations</h1>
+            <p>Apprenez à importer et vendre comme un pro</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Formations</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">68</div>
+                <div class="stat-label">Leçons</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">45%</div>
+                <div class="stat-label">Progression</div>
+            </div>
+        </div>
+
+        <div class="progress">
+            <div>📈 Progression globale</div>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <div style="font-size: 0.7rem; margin-top: 5px;">45% complété</div>
+        </div>
+
+        <div class="course">
+            <div class="course-icon">🇨🇳</div>
+            <div class="course-info">
+                <div class="course-title">Importer depuis la Chine</div>
+                <div class="course-desc">Guide complet pour votre première importation</div>
+                <div class="course-progress">✅ 6/8 leçons - 75%</div>
+            </div>
+            <button class="btn" onclick="alert('Formation en cours...')">Continuer</button>
+        </div>
+
+        <div class="course">
+            <div class="course-icon">💬</div>
+            <div class="course-info">
+                <div class="course-title">Vendre sur WhatsApp</div>
+                <div class="course-desc">Créez votre catalogue et vendez facilement</div>
+                <div class="course-progress">▶️ 2/5 leçons - 40%</div>
+            </div>
+            <button class="btn" onclick="alert('Formation en cours...')">Continuer</button>
+        </div>
+
+        <div class="course">
+            <div class="course-icon">📦</div>
+            <div class="course-info">
+                <div class="course-title">Gestion de stock</div>
+                <div class="course-desc">Suivez vos inventaires facilement</div>
+                <div class="course-progress">▶️ 1/5 leçons - 20%</div>
+            </div>
+            <button class="btn" onclick="alert('Formation en cours...')">Continuer</button>
+        </div>
+
+        <div class="course">
+            <div class="course-icon">📣</div>
+            <div class="course-info">
+                <div class="course-title">Facebook Ads</div>
+                <div class="course-desc">Publiez et vendez sur Facebook/Instagram</div>
+                <div class="course-progress">🔒 Non commencé</div>
+            </div>
+            <button class="btn" onclick="alert('Démarrage de la formation...')">Commencer</button>
+        </div>
+
+        <div class="course">
+            <div class="course-icon">🛃</div>
+            <div class="course-info">
+                <div class="course-title">Douane camerounaise</div>
+                <div class="course-desc">Comprendre les taxes et documents</div>
+                <div class="course-progress">🔒 Non commencé</div>
+            </div>
+            <button class="btn" onclick="alert('Démarrage de la formation...')">Commencer</button>
+        </div>
+
+        <div class="back">
+            <a href="importhub-dashboard.html">← Retour au Dashboard</a>
+        </div>
+    </div>
+</body>
+      </html>
