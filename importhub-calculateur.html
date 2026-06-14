@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur - ImportHub Cameroun</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #F4F6FA;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+        }
+        h1 { color: #0B1F3A; margin-bottom: 20px; text-align: center; }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background: #F5640A;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 16px;
+            background: #F4F6FA;
+            border-radius: 8px;
+            display: none;
+        }
+        .result.show { display: block; }
+        .result p { margin: 8px 0; }
+        .value { font-weight: bold; color: #F5640A; }
+        .nav-back {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: #F5640A;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="importhub-dashboard.html" class="nav-back">← Retour</a>
+        <h1>🧮 Calculateur de bénéfices</h1>
+        
+        <input type="number" id="prix" placeholder="💰 Prix fournisseur (FCFA)">
+        <input type="number" id="qte" placeholder="📦 Quantité">
+        <input type="number" id="transport" placeholder="🚢 Transport (FCFA)">
+        <input type="number" id="marge" placeholder="📈 Marge souhaitée (%)" value="30">
+        
+        <button onclick="calculer()">Calculer</button>
+        
+        <div class="result" id="result">
+            <p>💰 Coût total : <span class="value" id="total">0</span> FCFA</p>
+            <p>📦 Coût par unité : <span class="value" id="unitaire">0</span> FCFA</p>
+            <p>🏷️ Prix de vente conseillé : <span class="value" id="prixVente">0</span> FCFA</p>
+            <p>✅ Bénéfice net : <span class="value" id="benefice">0</span> FCFA</p>
+        </div>
+    </div>
+
+    <script>
+        function calculer() {
+            let prix = Number(document.getElementById('prix').value) || 0;
+            let qte = Number(document.getElementById('qte').value) || 1;
+            let transport = Number(document.getElementById('transport').value) || 0;
+            let marge = Number(document.getElementById('marge').value) || 30;
+            
+            let total = (prix * qte) + transport;
+            let unitaire = total / qte;
+            let prixVente = unitaire * (1 + marge / 100);
+            let benefice = (prixVente - unitaire) * qte;
+            
+            document.getElementById('total').innerHTML = Math.round(total).toLocaleString('fr-FR');
+            document.getElementById('unitaire').innerHTML = Math.round(unitaire).toLocaleString('fr-FR');
+            document.getElementById('prixVente').innerHTML = Math.round(prixVente).toLocaleString('fr-FR');
+            document.getElementById('benefice').innerHTML = Math.round(benefice).toLocaleString('fr-FR');
+            document.getElementById('result').classList.add('show');
+        }
+    </script>
+</body>
+  </html>
