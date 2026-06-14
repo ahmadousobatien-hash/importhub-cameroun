@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boutique & CRM - ImportHub Cameroun</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial; background: #0B1F3A; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; }
+        .header { background: #0B1F3A; color: white; padding: 20px; text-align: center; }
+        .header h1 { font-size: 1.5rem; }
+        .url-bar { background: #F4F6FA; margin: 16px; padding: 12px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .url { font-size: 0.8rem; color: #F5640A; font-weight: bold; }
+        .btn-url { background: #F5640A; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+        .stats { display: flex; justify-content: space-around; margin: 16px; }
+        .stat-card { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 12px; text-align: center; flex: 1; margin: 0 4px; }
+        .stat-value { font-size: 1.3rem; font-weight: bold; color: #F5640A; }
+        .stat-label { font-size: 0.7rem; color: #6B7280; }
+        .section { margin: 16px; }
+        .section-title { font-weight: bold; margin-bottom: 12px; font-size: 1rem; }
+        .product-list { display: flex; flex-wrap: wrap; gap: 12px; }
+        .product { background: white; border: 1px solid #E5E7EB; border-radius: 12px; padding: 12px; width: calc(50% - 6px); box-sizing: border-box; }
+        .product-name { font-weight: bold; font-size: 0.85rem; }
+        .product-price { color: #F5640A; font-weight: bold; margin: 5px 0; }
+        .product-stock { font-size: 0.7rem; color: #6B7280; }
+        .client-list { background: #F4F6FA; border-radius: 12px; padding: 12px; }
+        .client { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #E5E7EB; }
+        .client:last-child { border-bottom: none; }
+        .client-name { font-weight: bold; font-size: 0.85rem; }
+        .client-phone { font-size: 0.7rem; color: #6B7280; }
+        .client-total { font-size: 0.8rem; font-weight: bold; color: #16A34A; }
+        .btn-wa { background: #25D366; color: white; border: none; padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 0.7rem; }
+        .btn-add { background: #F5640A; color: white; border: none; padding: 8px 16px; border-radius: 8px; width: 100%; cursor: pointer; font-weight: bold; margin-top: 12px; }
+        .back { text-align: center; padding: 16px; border-top: 1px solid #E5E7EB; }
+        .back a { color: #F5640A; text-decoration: none; }
+        .invoice-item { background: #F4F6FA; border-radius: 12px; padding: 12px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .invoice-id { font-weight: bold; font-size: 0.8rem; }
+        .invoice-amount { color: #F5640A; font-weight: bold; }
+        .status-paid { background: #DCFCE7; color: #16A34A; padding: 2px 8px; border-radius: 20px; font-size: 0.7rem; }
+        .status-pending { background: #FEE2E2; color: #DC2626; padding: 2px 8px; border-radius: 20px; font-size: 0.7rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛒 Boutique & CRM</h1>
+            <p>Gérez vos clients et vos ventes</p>
+        </div>
+
+        <div class="url-bar">
+            <span>🔗 Ma boutique :</span>
+            <span class="url">importhub.cm/boutique/ahmadou</span>
+            <button class="btn-url" onclick="alert('Lien copié !')">📋 Copier</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card"><div class="stat-value">1 284</div><div class="stat-label">Vues</div></div>
+            <div class="stat-card"><div class="stat-value">34</div><div class="stat-label">Commandes</div></div>
+            <div class="stat-card"><div class="stat-value">648K</div><div class="stat-label">CA (FCFA)</div></div>
+            <div class="stat-card"><div class="stat-value">4.8</div><div class="stat-label">Note</div></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">📦 Mes produits</div>
+            <div class="product-list">
+                <div class="product">
+                    <div class="product-name">📱 Smartphone 4G 64Go</div>
+                    <div class="product-price">45 000 FCFA</div>
+                    <div class="product-stock">📦 Stock: 12 unités</div>
+                </div>
+                <div class="product">
+                    <div class="product-name">👗 Robe été tendance</div>
+                    <div class="product-price">12 500 FCFA</div>
+                    <div class="product-stock">📦 Stock: 45 unités</div>
+                </div>
+                <div class="product">
+                    <div class="product-name">💡 Ampoule LED 12W</div>
+                    <div class="product-price">1 500 FCFA</div>
+                    <div class="product-stock">📦 Stock: 200 unités</div>
+                </div>
+                <div class="product">
+                    <div class="product-name">🔋 Batterie solaire</div>
+                    <div class="product-price">35 000 FCFA</div>
+                    <div class="product-stock">📦 Stock: 8 unités</div>
+                </div>
+            </div>
+            <button class="btn-add" onclick="alert('Ajouter un produit')">+ Ajouter un produit</button>
+        </div>
+
+        <div class="section">
+            <div class="section-title">👥 Derniers clients</div>
+            <div class="client-list">
+                <div class="client">
+                    <div><div class="client-name">Marie Fouda</div><div class="client-phone">📱 +237 677 123 456</div></div>
+                    <div><div class="client-total">245K FCFA</div><button class="btn-wa" onclick="alert('WhatsApp +237 677 123 456')">💬</button></div>
+                </div>
+                <div class="client">
+                    <div><div class="client-name">Jean Nkolo</div><div class="client-phone">📱 +237 690 234 567</div></div>
+                    <div><div class="client-total">128K FCFA</div><button class="btn-wa" onclick="alert('WhatsApp +237 690 234 567')">💬</button></div>
+                </div>
+                <div class="client">
+                    <div><div class="client-name">Aïssatou Bah</div><div class="client-phone">📱 +237 655 345 678</div></div>
+                    <div><div class="client-total">89K FCFA</div><button class="btn-wa" onclick="alert('WhatsApp +237 655 345 678')">💬</button></div>
+                </div>
+                <div class="client">
+                    <div><div class="client-name">Paul Essomba</div><div class="client-phone">📱 +237 699 456 789</div></div>
+                    <div><div class="client-total">310K FCFA</div><button class="btn-wa" onclick="alert('WhatsApp +237 699 456 789')">💬</button></div>
+                </div>
+            </div>
+            <button class="btn-add" style="margin-top: 12px;" onclick="alert('Ajouter un client')">+ Nouveau client</button>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🧾 Dernières factures</div>
+            <div class="invoice-item">
+                <div><div class="invoice-id">#F-0042</div><div style="font-size: 0.7rem;">Marie Fouda</div></div>
+                <div class="invoice-amount">45 000 FCFA</div>
+                <div><span class="status-paid">Payée</span></div>
+            </div>
+            <div class="invoice-item">
+                <div><div class="invoice-id">#F-0041</div><div style="font-size: 0.7rem;">Paul Essomba</div></div>
+                <div class="invoice-amount">90 000 FCFA</div>
+                <div><span class="status-paid">Payée</span></div>
+            </div>
+            <div class="invoice-item">
+                <div><div class="invoice-id">#F-0040</div><div style="font-size: 0.7rem;">Aïssatou Bah</div></div>
+                <div class="invoice-amount">62 500 FCFA</div>
+                <div><span class="status-pending">En attente</span></div>
+            </div>
+            <button class="btn-add" style="margin-top: 12px;" onclick="alert('Nouvelle facture')">+ Nouvelle facture</button>
+        </div>
+
+        <div class="back">
+            <a href="importhub-dashboard.html">← Retour au Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
