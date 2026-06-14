@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Commandes groupées - ImportHub Cameroun</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial; background: #0B1F3A; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; }
+        .header { background: #0B1F3A; color: white; padding: 20px; text-align: center; }
+        .header h1 { font-size: 1.5rem; }
+        .hero { background: linear-gradient(135deg, #F5640A, #FF7B2C); padding: 20px; text-align: center; color: white; margin: 16px; border-radius: 12px; }
+        .hero h2 { font-size: 1.2rem; margin-bottom: 8px; }
+        .hero p { font-size: 0.8rem; opacity: 0.9; }
+        .group-card { background: white; border: 1px solid #E5E7EB; border-radius: 12px; margin: 16px; padding: 16px; }
+        .group-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .group-name { font-weight: bold; font-size: 1rem; color: #0B1F3A; }
+        .group-status { font-size: 0.7rem; padding: 3px 8px; border-radius: 20px; }
+        .status-open { background: #DCFCE7; color: #16A34A; }
+        .status-full { background: #FEE2E2; color: #DC2626; }
+        .group-desc { font-size: 0.8rem; color: #6B7280; margin-bottom: 12px; }
+        .group-progress { margin-bottom: 12px; }
+        .progress-bar { background: #E5E7EB; height: 6px; border-radius: 10px; }
+        .progress-fill { background: #F5640A; width: 60%; height: 6px; border-radius: 10px; }
+        .progress-text { font-size: 0.7rem; margin-top: 4px; color: #6B7280; }
+        .group-price { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .price-solo { font-size: 0.7rem; color: #6B7280; text-decoration: line-through; }
+        .price-group { font-weight: bold; color: #F5640A; }
+        .btn-join { background: #F5640A; color: white; border: none; padding: 10px; border-radius: 8px; width: 100%; cursor: pointer; font-weight: bold; }
+        .btn-join:disabled { background: #ccc; cursor: not-allowed; }
+        .my-groups { background: #F4F6FA; margin: 16px; padding: 16px; border-radius: 12px; }
+        .my-group { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #E5E7EB; }
+        .my-group:last-child { border-bottom: none; }
+        .my-group-name { font-size: 0.85rem; font-weight: bold; }
+        .my-group-saving { color: #16A34A; font-weight: bold; }
+        .back { text-align: center; padding: 16px; border-top: 1px solid #E5E7EB; }
+        .back a { color: #F5640A; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👥 Commandes groupées</h1>
+            <p>Économisez jusqu'à 40%</p>
+        </div>
+
+        <div class="hero">
+            <h2>🎉 Achetez ensemble, payez moins cher !</h2>
+            <p>Plus vous êtes nombreux, plus le prix baisse</p>
+        </div>
+
+        <div class="my-groups">
+            <h3 style="margin-bottom: 12px;">🙋 Mes groupes actifs</h3>
+            <div class="my-group">
+                <div>
+                    <div class="my-group-name">Smartphones Android</div>
+                    <div style="font-size: 0.7rem; color: #6B7280;">18/30 membres</div>
+                </div>
+                <div class="my-group-saving">-32% 🎉</div>
+            </div>
+            <div class="my-group">
+                <div>
+                    <div class="my-group-name">Mode été 2026</div>
+                    <div style="font-size: 0.7rem; color: #6B7280;">25/25 membres · En transit</div>
+                </div>
+                <div class="my-group-saving">-28% 🎉</div>
+            </div>
+        </div>
+
+        <div class="group-card">
+            <div class="group-header">
+                <span class="group-name">📱 Smartphones Android 4G</span>
+                <span class="group-status status-open">🟢 Ouvert</span>
+            </div>
+            <div class="group-desc">Smartphones 4G 64Go. Prix dégressif selon nombre de participants.</div>
+            <div class="group-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 60%"></div></div>
+                <div class="progress-text">18/30 membres</div>
+            </div>
+            <div class="group-price">
+                <span class="price-solo">45 000 FCFA</span>
+                <span class="price-group">32 000 FCFA -32%</span>
+            </div>
+            <button class="btn-join" onclick="alert('Vous avez rejoint le groupe !')">➕ Rejoindre le groupe</button>
+        </div>
+
+        <div class="group-card">
+            <div class="group-header">
+                <span class="group-name">🔧 Pièces Auto Toyota/Honda</span>
+                <span class="group-status status-open">🟢 Ouvert</span>
+            </div>
+            <div class="group-desc">Kit entretien complet : filtres, plaquettes, courroie.</div>
+            <div class="group-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 40%"></div></div>
+                <div class="progress-text">8/20 membres</div>
+            </div>
+            <div class="group-price">
+                <span class="price-solo">35 000 FCFA</span>
+                <span class="price-group">24 000 FCFA -31%</span>
+            </div>
+            <button class="btn-join" onclick="alert('Vous avez rejoint le groupe !')">➕ Rejoindre le groupe</button>
+        </div>
+
+        <div class="group-card">
+            <div class="group-header">
+                <span class="group-name">☀️ Kits Solaires 200W</span>
+                <span class="group-status status-open">🟢 Ouvert</span>
+            </div>
+            <div class="group-desc">Kit complet : panneau + batterie + régulateur.</div>
+            <div class="group-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 25%"></div></div>
+                <div class="progress-text">5/20 membres</div>
+            </div>
+            <div class="group-price">
+                <span class="price-solo">185 000 FCFA</span>
+                <span class="price-group">128 000 FCFA -31%</span>
+            </div>
+            <button class="btn-join" onclick="alert('Vous avez rejoint le groupe !')">➕ Rejoindre le groupe</button>
+        </div>
+
+        <div class="group-card">
+            <div class="group-header">
+                <span class="group-name">👗 Collection Mode Été</span>
+                <span class="group-status status-full">🔴 Complet</span>
+            </div>
+            <div class="group-desc">Vêtements femme tendance, tailles S à XL.</div>
+            <div class="group-progress">
+                <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                <div class="progress-text">25/25 membres</div>
+            </div>
+            <div class="group-price">
+                <span class="price-solo">8 500 FCFA</span>
+                <span class="price-group">6 200 FCFA -27%</span>
+            </div>
+            <button class="btn-join" disabled>❌ Groupe complet</button>
+        </div>
+
+        <div class="back">
+            <a href="importhub-dashboard.html">← Retour au Dashboard</a>
+        </div>
+    </div>
+</body>
+      </html>
