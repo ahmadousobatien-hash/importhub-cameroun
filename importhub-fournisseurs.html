@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fournisseurs - ImportHub Cameroun</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial; background: #0B1F3A; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; }
+        .header { background: #0B1F3A; color: white; padding: 20px; text-align: center; }
+        .header h1 { font-size: 1.5rem; }
+        .search-bar { margin: 16px; display: flex; gap: 8px; }
+        .search-bar input { flex: 1; padding: 10px; border: 1px solid #E5E7EB; border-radius: 8px; font-size: 0.9rem; }
+        .search-bar button { background: #F5640A; color: white; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; }
+        .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px; }
+        .filter { background: #F4F6FA; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; }
+        .filter.active { background: #F5640A; color: white; }
+        .supplier-card { border: 1px solid #E5E7EB; border-radius: 12px; margin: 16px; padding: 16px; }
+        .supplier-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .supplier-name { font-weight: bold; font-size: 1rem; color: #0B1F3A; }
+        .supplier-verified { background: #DCFCE7; color: #16A34A; padding: 2px 8px; border-radius: 20px; font-size: 0.7rem; }
+        .supplier-origin { font-size: 0.75rem; color: #6B7280; margin-bottom: 8px; }
+        .supplier-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+        .tag { background: #F4F6FA; padding: 3px 8px; border-radius: 12px; font-size: 0.7rem; }
+        .supplier-meta { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.75rem; }
+        .supplier-rating { color: #F5A623; }
+        .btn-contact { background: #F5640A; color: white; border: none; padding: 8px; border-radius: 8px; width: 100%; cursor: pointer; font-weight: bold; }
+        .btn-fav { background: #F4F6FA; border: 1px solid #E5E7EB; padding: 8px; border-radius: 8px; width: 40px; cursor: pointer; margin-left: 8px; }
+        .supplier-footer { display: flex; }
+        .back { text-align: center; padding: 16px; border-top: 1px solid #E5E7EB; }
+        .back a { color: #F5640A; text-decoration: none; }
+        .stats { display: flex; justify-content: space-around; margin: 16px; }
+        .stat { text-align: center; background: #F4F6FA; padding: 12px; border-radius: 12px; flex: 1; margin: 0 4px; }
+        .stat-value { font-size: 1.2rem; font-weight: bold; color: #F5640A; }
+        .stat-label { font-size: 0.65rem; color: #6B7280; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Fournisseurs</h1>
+            <p>Trouvez les meilleurs fournisseurs chinois</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat"><div class="stat-value">850+</div><div class="stat-label">Fournisseurs</div></div>
+            <div class="stat"><div class="stat-value">47</div><div class="stat-label">Pays</div></div>
+            <div class="stat"><div class="stat-value">4.8★</div><div class="stat-label">Note moyenne</div></div>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="🔍 Rechercher un fournisseur..." onkeyup="filterSuppliers()">
+            <button onclick="filterSuppliers()">OK</button>
+        </div>
+
+        <div class="filters">
+            <div class="filter active" onclick="setFilter('all', this)">🌐 Tous</div>
+            <div class="filter" onclick="setFilter('electronique', this)">📱 Électronique</div>
+            <div class="filter" onclick="setFilter('mode', this)">👗 Mode</div>
+            <div class="filter" onclick="setFilter('automobile', this)">🚗 Auto</div>
+            <div class="filter" onclick="setFilter('agriculture', this)">🌱 Agriculture</div>
+        </div>
+
+        <div id="suppliers-list">
+            <!-- Les fournisseurs apparaissent ici -->
+        </div>
+
+        <div class="back">
+            <a href="importhub-dashboard.html">← Retour au Dashboard</a>
+        </div>
+    </div>
+
+    <script>
+        const suppliers = [
+            { name: "TechChina Co.", origin: "Shenzhen, Chine", tags: ["Smartphones", "Tablettes", "Accessoires"], rating: 4.9, verified: true, cat: "electronique", minOrder: "500K FCFA" },
+            { name: "Fashion Guangzhou", origin: "Guangzhou, Chine", tags: ["Vêtements", "Accessoires", "Mode"], rating: 4.7, verified: true, cat: "mode", minOrder: "200K FCFA" },
+            { name: "AutoParts Shenzhen", origin: "Shenzhen, Chine", tags: ["Pièces moteur", "Carrosserie"], rating: 4.8, verified: true, cat: "automobile", minOrder: "300K FCFA" },
+            { name: "GreenEnergy Co.", origin: "Yiwu, Chine", tags: ["Panneaux solaires", "Pompes"], rating: 4.6, verified: true, cat: "agriculture", minOrder: "400K FCFA" },
+            { name: "PhonePlus Dongguan", origin: "Dongguan, Chine", tags: ["Smartphones", "Feature phones"], rating: 4.3, verified: false, cat: "electronique", minOrder: "300K FCFA" },
+            { name: "FashionKids GZ", origin: "Guangzhou, Chine", tags: ["Vêtements enfants", "Jouets"], rating: 4.6, verified: true, cat: "mode", minOrder: "100K FCFA" },
+            { name: "MotoTech Wuhan", origin: "Wuhan, Chine", tags: ["Motos", "Tricycles"], rating: 4.4, verified: false, cat: "automobile", minOrder: "250K FCFA" },
+            { name: "SolarMax Co.", origin: "Ningbo, Chine", tags: ["Solaire", "Batteries"], rating: 4.8, verified: true, cat: "agriculture", minOrder: "350K FCFA" }
+        ];
+
+        let currentFilter = "all";
+
+        function renderSuppliers() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const filtered = suppliers.filter(s => {
+                const matchCat = currentFilter === "all" || s.cat === currentFilter;
+                const matchSearch = s.name.toLowerCase().includes(searchTerm) || s.tags.some(t => t.toLowerCase().includes(searchTerm));
+                return matchCat && matchSearch;
+            });
+
+            const container = document.getElementById('suppliers-list');
+            if (filtered.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 40px; color: #6B7280;">Aucun fournisseur trouvé</div>';
+                return;
+            }
+
+            container.innerHTML = filtered.map(s => `
+                <div class="supplier-card">
+                    <div class="supplier-header">
+                        <span class="supplier-name">${s.name}</span>
+                        ${s.verified ? '<span class="supplier-verified">✓ Vérifié</span>' : '<span class="supplier-verified" style="background:#FEE2E2;color:#DC2626;">Non vérifié</span>'}
+                    </div>
+                    <div class="supplier-origin">📍 ${s.origin}</div>
+                    <div class="supplier-tags">${s.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                    <div class="supplier-meta">
+                        <span class="supplier-rating">★ ${s.rating}/5</span>
+                        <span>💰 ${s.minOrder}</span>
+                    </div>
+                    <div class="supplier-footer">
+                        <button class="btn-contact" onclick="alert('Contact : Contacter ${s.name}')">📩 Contacter</button>
+                        <button class="btn-fav" onclick="alert('Fournisseur ajouté aux favoris')">⭐</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterSuppliers() { renderSuppliers(); }
+        function setFilter(cat, btn) {
+            currentFilter = cat;
+            document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderSuppliers();
+        }
+
+        renderSuppliers();
+    </script>
+</body>
+      </html>
