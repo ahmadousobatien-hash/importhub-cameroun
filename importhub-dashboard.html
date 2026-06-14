@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ImportHub Cameroun</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F4F6FA;
+            color: #0B1F3A;
+        }
+        .header {
+            background: #0B1F3A;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 { font-size: 1.5rem; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #F5640A;
+        }
+        .stat-label {
+            color: #6B7280;
+            font-size: 0.8rem;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .nav-btn {
+            background: #0B1F3A;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .nav-btn:hover { background: #F5640A; }
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .welcome {
+            background: linear-gradient(135deg, #0B1F3A, #1a3a5c);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #6B7280;
+            font-size: 0.8rem;
+        }
+        @media (max-width: 768px) {
+            .stats { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 ImportHub Cameroun</h1>
+        <p>Votre plateforme d'importation et de digitalisation</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-value">18</div>
+            <div class="stat-label">Commandes ce mois</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">845K</div>
+            <div class="stat-label">Bénéfices (FCFA)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">34</div>
+            <div class="stat-label">Ventes boutique</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">4.8</div>
+            <div class="stat-label">Note clients</div>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="importhub-dashboard.html" class="nav-btn">📊 Dashboard</a>
+        <a href="importhub-calculateur.html" class="nav-btn">🧮 Calculateur</a>
+        <a href="importhub-assistant-ia.html" class="nav-btn">🤖 Assistant IA</a>
+        <a href="importhub-formations.html" class="nav-btn">📚 Formations</a>
+        <a href="importhub-groupes.html" class="nav-btn">👥 Commandes groupées</a>
+        <a href="importhub-crm.html" class="nav-btn">🛒 Boutique & CRM</a>
+        <a href="importhub-fournisseurs.html" class="nav-btn">🔍 Fournisseurs</a>
+    </div>
+
+    <div class="content">
+        <div class="welcome">
+            <h2>👋 Bonjour Ahmadou !</h2>
+            <p>Bienvenue sur votre tableau de bord. Vous avez 3 commandes en transit et 2 notifications non lues.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 ImportHub Cameroun | Fait avec ❤️ au Cameroun 🇨🇲</p>
+    </div>
+</body>
+  </html>
